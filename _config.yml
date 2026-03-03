@@ -1,5 +1,6 @@
 emote_theme: "jekyll/minima@1e8a445"
-  minima: classic options: dark
+  minima: 
+    skin: dark
 title: HossDecker
 author: BB
 paginate: 5

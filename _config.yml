@@ -1,6 +1,4 @@
-theme: minima
-minima: 
-    skin: dark
+remote_theme: amitmerchant1990/reverie
 title: HossDecker
 author: BB
 paginate: 5

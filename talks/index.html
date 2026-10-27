@@ -1,0 +1,17 @@
+---
+layout: default
+title: Talks and media
+permalink: /talks/
+description: Talks, videos, and podcasts.
+---
+<div class="wrap narrow prose-page">
+  <header class="page-head">
+    <h1>Talks and media</h1>
+    <p class="lede">Where to hear me, watch me, or find me on a stage.</p>
+  </header>
+  <ul class="list">
+    {% for t in site.data.talks %}
+    {% include talk-item.html t=t %}
+    {% endfor %}
+  </ul>
+</div>

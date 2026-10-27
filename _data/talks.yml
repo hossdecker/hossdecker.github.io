@@ -1,0 +1,8 @@
+# One entry per talk, video, or podcast. Newest first.
+# platform: linkedin, youtube, or anything else (anything else shows a generic link icon)
+# url: leave as "" if there is no link yet; the title will show without a link.
+- title: "[TALK, VIDEO, OR PODCAST TITLE]"
+  kind: Talk
+  summary: "[One line about what it covers.]"
+  platform: linkedin
+  url: "https://www.linkedin.com/in/brandonbischoff/"

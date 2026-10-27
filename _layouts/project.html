@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="wrap narrow prose-page">
+  <header class="page-head">
+    <p class="meta">{% if page.meter %}<span class="meter">{{ page.meter }}</span>{% endif %}{% if page.feel %} · {{ page.feel }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.tagline }}</p>
+    {% if page.tags %}<ul class="tags">{% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}</ul>{% endif %}
+  </header>
+  <dl class="facts">
+    <div><dt>The problem</dt><dd>{{ page.problem }}</dd></div>
+    <div><dt>My role</dt><dd>{{ page.role }}</dd></div>
+    <div><dt>Outcome</dt><dd>{{ page.outcome }}</dd></div>
+    <div><dt>Tools and frameworks</dt><dd>{{ page.tools }}</dd></div>
+  </dl>
+  <div class="prose">
+    {{ content }}
+  </div>
+  <p class="back"><a href="{{ '/projects/' | relative_url }}">Back to all projects</a></p>
+</article>

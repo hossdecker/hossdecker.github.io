@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span><strong>SYNcopated Security</strong> · {{ site.tagline }}</span>
+    <ul class="footer-links">
+      <li><a href="{{ site.linkedin_url }}" rel="me noopener">LinkedIn</a></li>
+      {% if site.youtube_url != "" %}<li><a href="{{ site.youtube_url }}" rel="me noopener">YouTube</a></li>{% endif %}
+      <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+    </ul>
+    <span>&copy; {{ 'now' | date: "%Y" }}</span>
+  </div>
+</footer>

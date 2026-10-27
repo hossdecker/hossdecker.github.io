@@ -1,0 +1,15 @@
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-row">
+    <div class="contact-copy">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title">Send a SYN. I'll bring the ACK.</h2>
+      <p>Questions, ideas, a project that needs a security program, or a band that needs a drummer who reads charts.</p>
+    </div>
+    <div class="contact-actions">
+      <button type="button" class="btn btn-light syn-btn" data-u="{{ site.contact_b64 }}" data-s="SYN" data-b="ACK me back when you can.">Send a SYN</button>
+      <a class="contact-link" href="{{ site.linkedin_url }}" rel="me noopener">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a>
+      <p class="syn-status" role="status" aria-live="polite"></p>
+      <noscript><p class="syn-status">JavaScript is off, so find me on <a href="{{ site.linkedin_url }}">LinkedIn</a> instead.</p></noscript>
+    </div>
+  </div>
+</section>

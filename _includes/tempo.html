@@ -1,0 +1,7 @@
+{% comment %}Reading time shown as a tempo: shorter reads are faster. Sets tempo_bpm and tempo_min.{% endcomment %}
+{% assign tempo_words = include.text | number_of_words %}
+{% assign tempo_min = tempo_words | divided_by: 200.0 | ceil %}
+{% if tempo_min < 1 %}{% assign tempo_min = 1 %}{% endif %}
+{% assign tempo_drop = tempo_min | times: 10 %}
+{% assign tempo_bpm = 200 | minus: tempo_drop %}
+{% if tempo_bpm < 60 %}{% assign tempo_bpm = 60 %}{% endif %}

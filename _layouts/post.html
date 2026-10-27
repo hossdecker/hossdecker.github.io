@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{% include tempo.html text=content %}
+<article class="wrap narrow prose-page">
+  <header class="page-head">
+    <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ tempo_bpm }} BPM · {{ tempo_min }} min read</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+  <p class="back"><a href="{{ '/writing/' | relative_url }}">Back to all writing</a></p>
+</article>

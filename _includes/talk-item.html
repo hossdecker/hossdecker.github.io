@@ -1,0 +1,9 @@
+{% assign t = include.t %}
+<li class="talk">
+  {% include icon.html name=t.platform %}
+  <div>
+    <span class="talk-kind">{{ t.kind }}</span>
+    <h3>{% if t.url and t.url != "" %}<a href="{{ t.url }}" rel="noopener">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}</h3>
+    <p>{{ t.summary }}</p>
+  </div>
+</li>

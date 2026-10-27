@@ -1,0 +1,24 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+description: Case studies from security and compliance work.
+---
+<div class="wrap prose-page">
+  <header class="page-head">
+    <h1>Projects</h1>
+    <p class="lede">Case studies, each with a time signature that tells you how much of a groove it was.</p>
+  </header>
+  <div class="cards">
+    {% assign projects = site.projects | sort: "order" %}
+    {% for project in projects %}
+    <article class="card">
+      <p class="meta">{{ project.meter }}{% if project.feel %} · {{ project.feel }}{% endif %}</p>
+      <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      <p>{{ project.tagline }}</p>
+      {% if project.tags %}<ul class="tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>{% endif %}
+      <a class="more" href="{{ project.url | relative_url }}">Read the case study</a>
+    </article>
+    {% endfor %}
+  </div>
+</div>

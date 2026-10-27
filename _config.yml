@@ -1,9 +1,41 @@
-remote_theme: amitmerchant1990/reverie
-title: HossDecker
-name: HossDecker
-description: Welcome to HossDecker
+title: SYNcopated Security
+tagline: Zero trust. Full volume.
+description: Security, cinema, and heavy music, from a cybersecurity pro who reads drum charts.
 author: BB
 url: https://hossdecker.com
-paginate: 5
-paginate_path: /page:num/
-permalink: /:title/
+baseurl: ""
+
+# Contact and social. The email is stored base64-encoded so it is not plain text in the page source.
+# To change it: printf 'new@address.com' | base64
+contact_b64: c3luQGhvc3NkZWNrZXIuY29t
+linkedin_url: https://www.linkedin.com/in/brandonbischoff/
+youtube_url: ""
+
+markdown: kramdown
+permalink: /writing/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - README.md
+  - .gitignore

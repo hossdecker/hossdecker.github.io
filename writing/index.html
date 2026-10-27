@@ -1,0 +1,22 @@
+---
+layout: default
+title: Writing
+permalink: /writing/
+description: Essays and notes on security, movies, and heavy music.
+---
+<div class="wrap narrow prose-page">
+  <header class="page-head">
+    <h1>Writing</h1>
+    <p class="lede">Notes on security, cinema, and anything loud enough to deserve one.</p>
+  </header>
+  <ul class="list">
+    {% for post in site.posts %}
+    {% include tempo.html text=post.content %}
+    <li>
+      <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time> · {{ tempo_bpm }} BPM · {{ tempo_min }} min read</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.lede | default: post.excerpt | strip_html | truncatewords: 28 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

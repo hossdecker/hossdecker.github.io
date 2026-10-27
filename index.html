@@ -1,49 +1,62 @@
 ---
 layout: default
 ---
-
-<div class="posts">
-  {% for post in paginator.posts %}
-    <article class="post">
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        <h1>{{ post.title }}</h1>
-
-        <div>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-        </div>
-      </a>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-
-  <!-- pagination -->
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-    {% else %}
-      <span>&laquo; Prev</span>
-    {% endif %}
-
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="webjeda">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-    {% else %}
-      <span>Next &raquo;</span>
-    {% endif %}
+<section class="wrap hero" aria-label="Introduction">
+  <div class="hero-copy">
+    <p class="eyebrow">Cybersecurity · Cinema · The heavy stuff</p>
+    <h1>Zero trust. Full volume.</h1>
+    <p>I work in cybersecurity, read drum charts for fun, and believe every good threat model deserves a loud soundtrack. Movies are my other language, and the current rotation includes Architects, Wage War, Tiny Moving Parts, and Ben Quad.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ '/projects/' | relative_url }}">See the projects</a>
+      <a class="btn btn-ghost" href="#contact">Send a SYN</a>
+    </div>
   </div>
-  {% endif %}
-</div>
+  <figure class="hero-panel">
+    {% include handshake.html %}
+    <figcaption>The TCP three-way handshake, written as a drum groove.</figcaption>
+  </figure>
+</section>
+
+<div class="staff" aria-hidden="true"></div>
+
+<section class="wrap section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="sec-title"><span class="timesig" aria-hidden="true"><span>7</span><span>8</span></span>Featured projects</h2>
+  <div class="cards">
+    {% assign projects = site.projects | sort: "order" %}
+    {% for project in projects limit: 2 %}
+    <article class="card">
+      <p class="meta">{{ project.meter }}{% if project.feel %} · {{ project.feel }}{% endif %}</p>
+      <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      <p>{{ project.tagline }}</p>
+      {% if project.tags %}<ul class="tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>{% endif %}
+      <a class="more" href="{{ project.url | relative_url }}">Read the case study</a>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="view-all"><a href="{{ '/projects/' | relative_url }}">All projects</a></p>
+</section>
+
+<section class="wrap section" aria-labelledby="writing-title">
+  <h2 id="writing-title" class="sec-title"><span class="timesig" aria-hidden="true"><span>4</span><span>4</span></span>Recent writing</h2>
+  <ul class="list">
+    {% for post in site.posts limit: 3 %}
+    {% include tempo.html text=post.content %}
+    <li>
+      <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time> · {{ tempo_bpm }} BPM · {{ tempo_min }} min read</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.lede | default: post.excerpt | strip_html | truncatewords: 28 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="view-all"><a href="{{ '/writing/' | relative_url }}">All writing</a></p>
+</section>
+
+<section class="wrap section" aria-labelledby="talks-title">
+  <h2 id="talks-title" class="sec-title"><span class="timesig" aria-hidden="true"><span>5</span><span>4</span></span>Talks and media</h2>
+  <ul class="list">
+    {% for t in site.data.talks limit: 3 %}
+    {% include talk-item.html t=t %}
+    {% endfor %}
+  </ul>
+  <p class="view-all"><a href="{{ '/talks/' | relative_url }}">All talks and media</a></p>
+</section>

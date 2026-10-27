@@ -1,9 +1,0 @@
-remote_theme: amitmerchant1990/reverie
-title: HossDecker
-name: HossDecker
-description: Welcome to HossDecker
-author: BB
-url: https://hossdecker.com
-paginate: 5
-paginate_path: /page:num/
-permalink: /:title/
